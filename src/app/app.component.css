@@ -1,74 +1,56 @@
-:host {
-  --color-background: #ffffff;
-  --color-surface: #f4f6f8;
-  --color-text: #1d2733;
-  --color-muted: #5c6875;
-  --color-accent: #2856a5;
-  --color-border: #dce1e6;
-  display: block;
-  color: var(--color-text);
-}
 
-.container {
-  width: min(calc(100% - 2rem), 68rem);
-  margin-inline: auto;
-}
-
-.narrow {
-  max-width: 46rem;
-}
-
-.skip-link {
-  position: fixed;
-  top: 0.75rem;
-  left: 0.75rem;
-  z-index: 10;
-  padding: 0.65rem 0.9rem;
-  background: var(--color-text);
-  color: white;
-  transform: translateY(-160%);
-}
-
-.skip-link:focus {
-  transform: translateY(0);
-}
+/*Style Rules for Navigation*/
 
 .site-header {
-  border-bottom: 1px solid var(--color-border);
-  background: var(--color-background);
+  background-color: #17233f;
+  padding: 1.25rem 3rem;
 }
 
-.header-content {
+.site-nav {
   display: flex;
-  min-height: 4.5rem;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  max-width: 1200px;
+  height: 50px;
+  margin: 0 auto;
+
 }
 
-.site-name {
-  color: var(--color-text);
-  font-weight: 750;
+.logo {
+  color: white;
   text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
-nav {
+.nav-links {
   display: flex;
-  gap: 1.25rem;
-  flex-wrap: wrap;
+  gap: 2rem;
 }
 
-nav a {
-  color: var(--color-muted);
-  font-weight: 650;
+.nav-links a {
+  color: #cccccc;
   text-decoration: none;
+  font-size: 0.95rem;
+  padding: 8px 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
 }
 
-nav a:hover,
-nav a:focus-visible {
-  color: var(--color-accent);
+.nav-links a:focus-visible {
+  outline: 2px dotted #fff;
+  outline-offset: 5px;
 }
 
+.nav-links a:hover {
+  color: #fff;
+  border-bottom: 2px solid #fff
+}
+
+.nav-links a.active {
+  color: #fff;
+  font-weight: bold;
+}
 .hero {
   padding: clamp(5rem, 12vw, 9rem) 0;
 }
@@ -174,10 +156,36 @@ nav a:focus-visible {
 }
 
 .site-footer {
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid;
   padding: 2rem 0;
-  color: var(--color-muted);
+  background-color: #17233f;
 }
+
+.site-footer p {
+  color: #fff;
+  margin: 0px;
+  margin-left: 30px;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.25rem;
+  margin: 15px 0px 15px 30px;
+}
+
+.social-links a {
+  display: flex;
+  opacity: 0.8;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+
+
 
 @media (max-width: 760px) {
   .header-content {

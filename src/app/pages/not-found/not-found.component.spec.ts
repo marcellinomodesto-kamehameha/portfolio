@@ -1,18 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { NotFound } from './not-found.component';
+import { NotFoundComponent } from './not-found.component';
+import { provideRouter } from '@angular/router';
 
 describe('NotFound', () => {
-  let component: NotFound;
-  let fixture: ComponentFixture<NotFound>;
+  let component: NotFoundComponent;
+  let fixture: ComponentFixture<NotFoundComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NotFound]
+      imports: [NotFoundComponent],
+      providers: [provideRouter([])]
+
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NotFound);
+    fixture = TestBed.createComponent(NotFoundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,4 +22,18 @@ describe('NotFound', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+   it('should render the back home button', () => {
+    const homeButton = fixture.nativeElement.querySelectorAll('.home-button');
+
+    expect(homeButton.length).toBe(1);
+   });
+
+  it('back to home button should return home', () => {
+    const homeButton = fixture.nativeElement.querySelector('.home-button');;
+
+    expect(homeButton).toBeTruthy();
+    expect(homeButton.getAttribute('href')).toBe('/');
+  });
+
 });

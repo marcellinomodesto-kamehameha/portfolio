@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { provideRouter } from '@angular/router';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -7,7 +8,8 @@ describe('AppComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent]
+      imports: [AppComponent],
+      providers: [provideRouter([])]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
@@ -19,21 +21,40 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('renders the replaceable student name', () => {
-    const page = fixture.nativeElement as HTMLElement;
+  it('should render the navigation links', () => {
+    const links = fixture.nativeElement.querySelectorAll('nav a');
 
-    expect(page.querySelector('h1')?.textContent).toContain(component.studentName);
+    expect(links.length).toBe(5);
   });
 
-  it('renders every skill from the component data', () => {
-    const skillItems = fixture.nativeElement.querySelectorAll('.skill-list li');
+  it('should render the social links', () => {
+    const socialLinks = fixture.nativeElement.querySelectorAll('.social-links a');
 
-    expect(skillItems.length).toBe(component.skills.length);
-  });
+    expect(socialLinks.length).toBe(2);
+});
 
-  it('renders every project from the component data', () => {
-    const projectCards = fixture.nativeElement.querySelectorAll('.project-card');
+  it('should link to GitHub', () => {
+  const githubLink = fixture.nativeElement.querySelector(
+    '.social-links a[aria-label="GitHub"]'
+  );
 
-    expect(projectCards.length).toBe(component.projects.length);
-  });
+  expect(githubLink).toBeTruthy();
+  expect(githubLink.getAttribute('href')).toBe(
+    'https://github.com/marcellinomodesto-kamehameha'
+  );
+});
+
+
+  it('should link to email', () => {
+  const emailLink = fixture.nativeElement.querySelector(
+    '.social-links a[aria-label="Email"]'
+  );
+
+  expect(emailLink).toBeTruthy();
+  expect(emailLink.getAttribute('href')).toBe(
+    'https://mail.google.com/mail/?view=cm&fs=1&to=marcellinomodesto@gmail.com'
+  );
+});
+
+
 });

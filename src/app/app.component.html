@@ -1,16 +1,44 @@
-<header>
-  <nav>
-  <a routerLink="/">Home</a>
-  <a routerLink="/about">About</a>
-  <a routerLink="/projects">Projects</a>
-  <a routerLink="/resume">Resume</a>
-</nav>
+<header class="site-header">
+  <nav class="site-nav">
+    <a class="logo" routerLink="/">Portfolio</a>
+
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        Home
+      </a>
+
+      <a routerLink="/resume" routerLinkActive="active">
+        Resume
+      </a>
+
+      <a routerLink="/about" routerLinkActive="active">
+        About
+      </a>
+
+      <a routerLink="/projects" routerLinkActive="active">
+        Projects
+      </a>
+    </div>
+  </nav>
 </header>
 
-<main id ="main-content">
+<main id="main-content">
   <router-outlet></router-outlet>
 </main>
 
-<footer>
-  <!-- footer -->
+<footer class="site-footer">
+  <p>Marcellino Modesto</p>
+  <p>Student Web Developer</p>
+
+  <div class="social-links">
+    <a href="https://github.com/marcellinomodesto-kamehameha" aria-label="GitHub">
+      <img src="/images/github.png" width="30px" height="30px" alt="GitHub Logo">
+    </a>
+
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=marcellinomodesto@gmail.com" aria-label="Email">
+      <img src="/images/gmailicon.webp" width="30px" height="30px" alt="Gmail Logo">
+    </a>
+  </div>
+
+  <p>© {{ currentYear }} Marcellino Modesto</p>
 </footer>
