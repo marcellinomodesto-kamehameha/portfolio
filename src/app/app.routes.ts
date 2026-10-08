@@ -6,29 +6,29 @@ import { ProjectsComponent } from './pages/projects/projects.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
-   {
+  {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
-     path: 'home',
-    component: HomeComponent
+    path: 'home',
+    component: HomeComponent,
   },
   {
-     path: 'about',
-    component: AboutComponent
+    path: 'about',
+    component: AboutComponent,
   },
   {
-     path: 'resume',
-    component: ResumeComponent
+    path: 'resume',
+    component: ResumeComponent,
   },
   {
-     path: 'projects',
-    component: ProjectsComponent
+    path: 'projects',
+    component: ProjectsComponent,
   },
   {
-     path: '**',
+    path: '**',
     component: NotFoundComponent,
-    title: '404 - Page Not Found'
-  }
+    title: '404 - Page Not Found',
+  },
 ];
