@@ -9,22 +9,27 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    title: 'Home | Portfolio',
   },
   {
     path: 'home',
     component: HomeComponent,
+    title: 'Home | Portfolio',
   },
   {
     path: 'about',
     component: AboutComponent,
+    title: 'About | Portfolio'
   },
   {
     path: 'resume',
     component: ResumeComponent,
+    title: 'Resume | Portfolio'
   },
   {
     path: 'projects',
     component: ProjectsComponent,
+    title: 'Projects | Portfolio',
   },
   {
     path: '**',
