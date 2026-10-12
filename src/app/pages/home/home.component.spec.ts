@@ -9,9 +9,8 @@ describe('Home', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HomeComponent],
-      providers: [provideRouter([])]
-    })
-    .compileComponents();
+      providers: [provideRouter([])],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
@@ -24,16 +23,45 @@ describe('Home', () => {
 
   it('should display welcome heading', () => {
     const heading = fixture.nativeElement.querySelector('h1');
-    expect(heading.textContent).toContain('Welcome!')
+
+    expect(heading).toBeTruthy();
+    expect(heading.textContent).toContain('Welcome!');
   });
 
   it('project button should link to projects page', () => {
-    const projectsButton = fixture.nativeElement.querySelector('.projects-button');;
+    const projectsButton =
+      fixture.nativeElement.querySelector('.projects-button');
 
     expect(projectsButton).toBeTruthy();
     expect(projectsButton.getAttribute('href')).toBe('/projects');
+  });
 
-  })
+  it('should render the four technology cards', () => {
+    const technologyCards = fixture.nativeElement.querySelectorAll('.tech-box');
 
+    expect(technologyCards.length).toBe(4);
 
+    const technologyNames = Array.from(
+      technologyCards as NodeListOf<Element>,
+    ).map((card: Element) => card.querySelector('h3')?.textContent?.trim());
+
+    expect(technologyNames).toEqual(['Angular', 'CSS', 'HTML', 'Node.js']);
+  });
+
+  it('should display the bucket list and personal goals', () => {
+    const bucketList = fixture.nativeElement.querySelector('.bucket-list');
+
+    expect(bucketList).toBeTruthy();
+    expect(bucketList.querySelector('h2').textContent).toContain(
+      'My Bucket List!',
+    );
+
+    const goals = bucketList.querySelectorAll('li');
+
+    expect(goals.length).toBe(6);
+    expect(bucketList.textContent).toContain('Visit Iceland');
+    expect(bucketList.textContent).toContain(
+      'Obtain my bachelors degree in Web Development',
+    );
+  });
 });

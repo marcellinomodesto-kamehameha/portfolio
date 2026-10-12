@@ -11,11 +11,6 @@
   text-align: center;
 }
 
-
-/* =========================
-   PAGE TITLE
-   ========================= */
-
 .about-content h1 {
   margin: 0 0 2rem;
   color: #17233f;
@@ -23,30 +18,48 @@
   font-weight: 700;
 }
 
-
-
 .about-image {
   display: block;
-  width: 305px;
-  height: 450px;
-  margin: 0 auto 1.5rem;
-  object-fit: cover;
+  height: 400px;
+  margin: 0 auto 0.6rem;
+  object-fit: contain;
   border-radius: 100px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 
 
+
 .about-section {
   width: 100%;
   max-width: 700px;
-  margin: 2rem auto 0;
+  margin: 2.5rem auto 0;
+  padding: 1.75rem;
+  box-sizing: border-box;
+
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(23, 35, 63, 0.06);
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    background-color 0.35s ease;
+
+  will-change: transform;
 }
 
+.about-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(23, 35, 63, 0.12);
+}
+
+
 .about-section h2 {
-  margin: 0 0 0.8rem;
+  margin: 0 0 1rem;
   color: #17233f;
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 500;
+  text-align: center;
 }
 
 .about-section p {
@@ -56,7 +69,6 @@
   line-height: 1.6;
   text-align: left;
 }
-
 
 /* =========================
    RESPONSIVE

@@ -1,1 +1,43 @@
-<p>projects works!</p>
+<section class="projects">
+  <div class="projects-header">
+    <h1>My Projects</h1>
+    <p>A few projects that showcase my skills and experience.</p>
+  </div>
+
+  <div class="projects-grid">
+    @for (project of projects; track project.title) {
+      <article class="project-card">
+        <img
+          class="project-image"
+          [src]="project.image"
+          [alt]="project.title + ' preview'"
+        />
+
+        <div class="project-content">
+          <h2>{{ project.title }}</h2>
+
+          <p class="project-description">
+            {{ project.description }}
+          </p>
+
+          <div class="technologies">
+            @for (technology of project.technologies; track technology) {
+              <span class="technology">{{ technology }}</span>
+            }
+          </div>
+
+          <div class="projects-button">
+            <a
+              [href]="project.githubUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="github-link"
+            >
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>

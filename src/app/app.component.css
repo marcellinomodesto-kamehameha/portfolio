@@ -188,6 +188,24 @@
   transform: translateY(-2px);
 }
 
+@media (max-width: 600px) {
+  .site-header {
+    padding: 1rem;
+  }
+
+  .site-nav {
+    height: auto;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 0.4rem 2.5rem;
+  }
+}
+
 @media (max-width: 760px) {
   .header-content {
     align-items: flex-start;
@@ -198,4 +216,17 @@
   .project-grid {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 375px) {
+  .site-nav {
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+
+  .site-nav a {
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
 }
